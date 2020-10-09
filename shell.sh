@@ -1,5 +1,7 @@
 ########TEST COMMANDS###################
-uptime
-date
-hostname
+echo "Server Health Status on `date` - `hostname`"
+
+echo `uptime`
 sleep 10s
+echo "Memory Status"
+echo `free -g`
