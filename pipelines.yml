@@ -1,0 +1,24 @@
+resources:
+  - name: my_app_repo
+    type: GitRepo
+    configuration:
+      gitProvider: GitIntegration
+      path: ranmadrev/Testprograms
+      branches:
+        include: master
+      buildOn:
+        commit: false
+        pullRequestCreate: true
+pipelines:
+  - name: java_pipeline
+    steps:
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: my_app_repo
+        execution:
+           onExecute:
+             - pushd $res_my_app_repo_resourcePath
+             - ./shell.sh
+             - popd     
