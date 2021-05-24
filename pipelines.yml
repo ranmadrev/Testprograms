@@ -20,5 +20,5 @@ pipelines:
         execution:
            onExecute:
              - pushd $res_my_app_repo_resourcePath
-             - ./shell.sh
+             - sh shell.sh
              - popd     
